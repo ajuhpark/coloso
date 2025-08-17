@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+
+    position:relative;
+    box-sizing:border-box;
+}
+
+body{
+    background:#ff0
+}
+
+
+.logo-letter text {
+    fill: #333;
+    font-family: 'Anaheim', sans-serif;
+    font-size: 32px;
+}
+.logo-letters {
+    display: flex;
+    gap: 2px;
+}
+
+
+#logo-letters {
+  display: flex;
+  gap: 2px;
+}
+.logo-letter text {
+  fill: #333;
+  font-family: 'Anaheim', sans-serif;
+  font-size: 32px;
+}
