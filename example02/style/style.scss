@@ -1,3 +1,12 @@
+
+html{
+  font-size:16px;
+}
+
+$lineHeight: 1.55em;
+$abs_lineHeight: calc(1rem*1.55);
+$margin: calc(1.5rem / 2);
+
 *{
     margin:0;
     padding:0;
@@ -33,3 +42,71 @@ body{
   font-family: 'Anaheim', sans-serif;
   font-size: 32px;
 }
+
+
+#logo-letters div {
+  display: block;
+  min-width: 16px;
+  height: 1px;
+}
+
+@font-face{
+  font-family: 'KoddiUD OnGothic';
+  src: url('../Font/KoddiUDOnGothic-Regular.woff2') format(woff2),
+      url('../Font/KoddiUDOnGothic-Regular.woff') format(woff);
+}
+
+h1{
+  font-family: 'KoddiUD OnGothic';
+}
+
+:root{
+  --background:#000;
+  --color:#fff;
+}
+
+body{
+  background:(var(--background));
+  color: var(--color);
+  line-height: $lineHeight;
+
+}
+
+.background{
+  position: fixed;
+  pointer-events: none;
+  top:0;
+  left:0;
+}
+
+.ruler{
+  @extend .background;
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  padding:0 calc(#{$margin} * 2);
+  span{
+    height:1rem;
+    width:3px;
+    background-color: var(--color);
+  }
+
+  // this & represents parent selector and when followed by a period  
+  &.ruler-top{
+    top: 0;
+  }
+}
+
+#logo-letters {
+  justify-content: space-around;
+}
+
+.logo-letter{
+  transform-origin:top;
+}
+
+// .logo-letter text {
+//   dominant-baseline: central; /* Centers text vertically */
+//   /* or */
+//   dominant-baseline: hanging; /* Aligns to top */
+// }

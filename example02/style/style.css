@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,4 +35,59 @@ body {
   fill: #333;
   font-family: "Anaheim", sans-serif;
   font-size: 32px;
+}
+
+#logo-letters div {
+  display: block;
+  min-width: 16px;
+  height: 1px;
+}
+
+@font-face {
+  font-family: "KoddiUD OnGothic";
+  src: url("../Font/KoddiUDOnGothic-Regular.woff2") format(woff2), url("../Font/KoddiUDOnGothic-Regular.woff") format(woff);
+}
+h1 {
+  font-family: "KoddiUD OnGothic";
+}
+
+:root {
+  --background:#000;
+  --color:#fff;
+}
+
+body {
+  background: var(--background);
+  color: var(--color);
+  line-height: 1.55em;
+}
+
+.background, .ruler {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+.ruler {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 calc(0.75rem * 2);
+}
+.ruler span {
+  height: 1rem;
+  width: 3px;
+  background-color: var(--color);
+}
+.ruler.ruler-top {
+  top: 0;
+}
+
+#logo-letters {
+  justify-content: space-around;
+}
+
+.logo-letter {
+  transform-origin: top;
 }/*# sourceMappingURL=style.css.map */
