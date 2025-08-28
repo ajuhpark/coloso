@@ -119,7 +119,6 @@ body {
 .drawing {
   width: 100%;
   mix-blend-mode: difference;
-  bottom: 100px;
 }
 .drawing svg {
   width: 100%;
