@@ -7,6 +7,13 @@ $lineHeight: 1.55em;
 $abs_lineHeight: calc(1rem*1.55);
 $margin: calc(1.5rem / 2);
 
+
+@font-face{
+  font-family: 'KoddiUD OnGothic';
+  src: url('../Font/KoddiUDOnGothic-Regular.woff2') format('woff2'),
+      url('../Font/KoddiUDOnGothic-Regular.woff') format('woff');
+}
+
 *{
     margin:0;
     padding:0;
@@ -15,12 +22,16 @@ $margin: calc(1.5rem / 2);
 
     position:relative;
     box-sizing:border-box;
+    font-family: 'KoddiUD OnGothic', 'Noto Sans KR', 'Pretendard';
+
 }
 
-body{
-    background:#ff0
-}
 
+a, a:link, a:visited{
+  text-decoration: none;
+  color: inherit;
+
+}
 
 .logo-letter text {
     fill: #333;
@@ -36,12 +47,10 @@ body{
 #logo-letters {
   display: flex;
   gap: 2px;
+  justify-content: space-around;
+
 }
-.logo-letter text {
-  fill: #333;
-  font-family: 'Anaheim', sans-serif;
-  font-size: 32px;
-}
+
 
 
 #logo-letters div {
@@ -50,11 +59,6 @@ body{
   height: 1px;
 }
 
-@font-face{
-  font-family: 'KoddiUD OnGothic';
-  src: url('../Font/KoddiUDOnGothic-Regular.woff2') format(woff2),
-      url('../Font/KoddiUDOnGothic-Regular.woff') format(woff);
-}
 
 h1{
   font-family: 'KoddiUD OnGothic';
@@ -97,9 +101,6 @@ body{
   }
 }
 
-#logo-letters {
-  justify-content: space-around;
-}
 
 .logo-letter{
   transform-origin:top;
@@ -110,3 +111,59 @@ body{
 //   /* or */
 //   dominant-baseline: hanging; /* Aligns to top */
 // }
+
+
+
+.link-tree{
+  font-size: calc(1rem + 0.3vw);
+  height: 100%;
+
+  line-height:$lineHeight;
+  counter-reset: linkTree;
+  /* this is to get a counter for the numbers */
+  li{
+    display:flex;
+    align-items: center;
+    position:fixed;
+    &::before{
+      counter-increment:linkTree;
+      content: counter(linkTree);
+      border: 3px solid;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width: 3em;
+      height:3em;
+      border-radius:100px;
+      margin-right: 0.5rem;
+
+    }
+    a{
+      border-bottom:3px solid transparent;
+    }
+    a:hover{
+      border-bottom: 3px solid;
+    }
+  }
+}
+
+.drawing{
+  width:100%;
+  mix-blend-mode: difference;
+  // bottom: 100px;
+  svg{
+    width:100%;
+    height:100%;
+
+    path{
+      animation: dash 3s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes dash {
+  to{
+    stroke-dashoffset: 0;
+  }
+}
+

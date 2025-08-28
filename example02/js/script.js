@@ -36,3 +36,39 @@ for (const char of text) { // Loop through each character in the string
   svg.appendChild(textElem);
   container.appendChild(svg);
 }
+
+// SVG path animation setup
+const path = document.querySelector('.drawing path');
+const pathLength = path.getTotalLength();
+
+// Set the stroke-dasharray and initial stroke-dashoffset to the path length
+path.style.strokeDasharray = pathLength;
+path.style.strokeDashoffset = pathLength;
+
+
+// getting random position for the numbers and words (steps)
+// 1. load html dom element
+const links = document.querySelectorAll(".link-tree li")
+
+// 2. give these things random positions. 
+console.log(Math.round(Math.random() * (window.innerWidth - 0) + 0))
+
+// 3. assign elements random positions
+// console.log(links[0])
+links[0].style.top = `${Math.round(Math.round(Math.random() * (window.innerHeight - 0) + 0))}px`
+links[0].style.left = `${Math.round(Math.round(Math.random() * (window.innerWidth - 0) + 0))}px`
+
+const getRandomPosition = (min, max) =>{
+  return Math.round(Math.round(Math.random() * (max - min) + min))
+}
+
+for(let i=0; i<links.length; i++){
+  // console.log(i)
+  console.log(links[i])
+  // links[i].style.top = `${Math.round(Math.round(Math.random() * (window.innerHeight - 0) + 0))}px`
+  // links[i].style.left = `${Math.round(Math.round(Math.random() * (window.innerWidth - 0) + 0))}px`
+  links[i].style.top = `${getRandomPosition(0, window.innerHeight)}px`
+  links[i].style.left = `${getRandomPosition(0, window.innerWidth)}px`
+}
+
+console.dir(links[0])

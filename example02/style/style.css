@@ -2,6 +2,10 @@ html {
   font-size: 16px;
 }
 
+@font-face {
+  font-family: "KoddiUD OnGothic";
+  src: url("../Font/KoddiUDOnGothic-Regular.woff2") format("woff2"), url("../Font/KoddiUDOnGothic-Regular.woff") format("woff");
+}
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +13,12 @@ html {
   text-decoration: none;
   position: relative;
   box-sizing: border-box;
+  font-family: "KoddiUD OnGothic", "Noto Sans KR", "Pretendard";
 }
 
-body {
-  background: #ff0;
+a, a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-letter text {
@@ -29,12 +35,7 @@ body {
 #logo-letters {
   display: flex;
   gap: 2px;
-}
-
-.logo-letter text {
-  fill: #333;
-  font-family: "Anaheim", sans-serif;
-  font-size: 32px;
+  justify-content: space-around;
 }
 
 #logo-letters div {
@@ -43,10 +44,6 @@ body {
   height: 1px;
 }
 
-@font-face {
-  font-family: "KoddiUD OnGothic";
-  src: url("../Font/KoddiUDOnGothic-Regular.woff2") format(woff2), url("../Font/KoddiUDOnGothic-Regular.woff") format(woff);
-}
 h1 {
   font-family: "KoddiUD OnGothic";
 }
@@ -84,10 +81,56 @@ body {
   top: 0;
 }
 
-#logo-letters {
-  justify-content: space-around;
-}
-
 .logo-letter {
   transform-origin: top;
+}
+
+.link-tree {
+  font-size: calc(1rem + 0.3vw);
+  height: 100%;
+  line-height: 1.55em;
+  counter-reset: linkTree;
+  /* this is to get a counter for the numbers */
+}
+.link-tree li {
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
+.link-tree li::before {
+  counter-increment: linkTree;
+  content: counter(linkTree);
+  border: 3px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  border-radius: 100px;
+  margin-right: 0.5rem;
+}
+.link-tree li a {
+  border-bottom: 3px solid transparent;
+}
+.link-tree li a:hover {
+  border-bottom: 3px solid;
+}
+
+.drawing {
+  width: 100%;
+  mix-blend-mode: difference;
+  bottom: 100px;
+}
+.drawing svg {
+  width: 100%;
+  height: 100%;
+}
+.drawing svg path {
+  animation: dash 3s ease-in-out forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
 }/*# sourceMappingURL=style.css.map */
